@@ -37,7 +37,7 @@ docs: fmt ## generate docs
 	git commit -m "regenerate documents by terraform-docs"
 
 .PHONY: check-docs
-check-docs: fmt ## check docs
+check-docs: ## check docs
 	docker run --rm -v "$(CURDIR):/work" quay.io/terraform-docs/terraform-docs:$(TERRAFORM_DOCS_VERSION) /work
 	test -z "$$(git status -s | tee /dev/stderr)"
 
