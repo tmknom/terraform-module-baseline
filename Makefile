@@ -18,6 +18,9 @@ plan: ## plan basic
 apply: ## apply basic
 	terraform -chdir=$(BASIC_DIR) apply
 
+destroy: ## destroy basic
+	terraform -chdir=$(BASIC_DIR) destroy
+
 fmt: ## format code
 	cd $(PROJECT_ROOT) && terraform fmt -recursive
 
