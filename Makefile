@@ -28,6 +28,8 @@ fmt: ## format code
 # terraform-docs
 docs: fmt ## generate docs
 	docker run --rm -v "$(CURDIR):/work" quay.io/terraform-docs/terraform-docs:$(TERRAFORM_DOCS_VERSION) /work
+	git add README.md
+	git commit -m "regenerate documents by terraform-docs"
 
 # Git
 .PHONY: merge
