@@ -12,7 +12,7 @@ PROJECT_ROOT := $$(git rev-parse --show-toplevel)
 BASIC_DIR := $(PROJECT_ROOT)/examples/basic
 
 # Terraform
-plan: ## plan basic
+plan: fmt ## plan basic
 	terraform -chdir=$(BASIC_DIR) init
 	terraform -chdir=$(BASIC_DIR) plan
 
@@ -26,7 +26,7 @@ fmt: ## format code
 	cd $(PROJECT_ROOT) && terraform fmt -recursive
 
 # terraform-docs
-docs: ## generate docs
+docs: fmt ## generate docs
 	docker run --rm -v "$(CURDIR):/work" quay.io/terraform-docs/terraform-docs:$(TERRAFORM_DOCS_VERSION) /work
 
 # Git
