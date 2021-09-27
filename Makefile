@@ -31,14 +31,16 @@ fmt: ## format code
 
 # terraform-docs
 .PHONY: docs
-docs: fmt ## generate docs
+docs: ## generate docs
 	docker run --rm -v "$(CURDIR):/work" quay.io/terraform-docs/terraform-docs:$(TERRAFORM_DOCS_VERSION) /work
+
+.PHONY: commit-docs
+commit-docs: fmt docs ## generate docs and commit
 	git add README.md
 	git commit -m "regenerate documents by terraform-docs"
 
 .PHONY: check-docs
-check-docs: ## check docs
-	docker run --rm -v "$(CURDIR):/work" quay.io/terraform-docs/terraform-docs:$(TERRAFORM_DOCS_VERSION) /work
+check-docs: docs ## check docs
 	test -z "$$(git status -s | tee /dev/stderr)"
 
 # Git
