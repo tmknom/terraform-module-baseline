@@ -4,6 +4,23 @@ sections:
   hide:
     - modules
 
+content: |-
+  ## Examples
+
+  ```hcl
+  {{ include "examples/basic/main.tf" -}}
+  ```
+
+  {{ .Requirements }}
+
+  {{ .Providers }}
+
+  {{ .Resources }}
+
+  {{ .Inputs }}
+
+  {{ .Outputs }}
+
 output:
   file: "README.md"
   mode: inject
