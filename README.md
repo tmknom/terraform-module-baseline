@@ -1,4 +1,4 @@
-# terraform-module-example
+# terraform-module-baseline
 
 Terraform module which creates Null resources.
 
