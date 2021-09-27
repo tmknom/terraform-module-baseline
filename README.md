@@ -1,6 +1,16 @@
 # terraform-module-example
 
 <!-- BEGIN_TF_DOCS -->
+## Examples
+
+```hcl
+module "example" {
+  source = "git@github.com:tmknom/terraform-module-example.git"
+
+  name = "example"
+}
+```
+
 ## Requirements
 
 | Name | Version |
