@@ -59,6 +59,22 @@ clean: ## clean branch
 	git branch --merged | grep -v '* main' | xargs git branch -d
 	git fetch --prune 2>/dev/null || true
 
+# Release
+.PHONY: bump-version
+bump-version: ## bump version
+	@current_version=$$(git tag --sort=-v:refname | head -1) && \
+	echo "Current version: $${current_version}" && \
+	read -rp "Input next version: " version && \
+	branch=release-$${version} && \
+	sed -i "" -e "s/$${current_version}/$${version}/" $(PROJECT_ROOT)/VERSION && \
+	sed -i "" -e "s/$${current_version}/$${version}/" $(PROJECT_ROOT)/examples/**/main.tf && \
+	$(MAKE) docs && \
+	git checkout -b $${branch} && \
+	git add $(PROJECT_ROOT)/VERSION && \
+	git commit -m "bump $${version}" && \
+	git tag $${version} && \
+	git push origin $${branch} $${version}
+
 # https://postd.cc/auto-documented-makefile/
 .PHONY: help
 help: ## show help
