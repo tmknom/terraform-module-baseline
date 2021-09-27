@@ -8,8 +8,16 @@ MAKEFLAGS += --no-builtin-rules
 # Variables
 DEFAULT_BRANCH ?= main
 PROJECT_ROOT := $$(git rev-parse --show-toplevel)
+BASIC_DIR := $(PROJECT_ROOT)/examples/basic
 
 # Terraform
+plan: ## plan basic
+	terraform -chdir=$(BASIC_DIR) init
+	terraform -chdir=$(BASIC_DIR) plan
+
+apply: ## apply basic
+	terraform -chdir=$(BASIC_DIR) apply
+
 fmt: ## format code
 	cd $(PROJECT_ROOT) && terraform fmt -recursive
 
