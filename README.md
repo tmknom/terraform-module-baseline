@@ -1,5 +1,7 @@
 # terraform-module-example
 
+Terraform module which creates Null resources.
+
 <!-- BEGIN_TF_DOCS -->
 ## Examples
 
