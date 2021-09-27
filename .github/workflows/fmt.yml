@@ -1,5 +1,9 @@
 name: Check fmt
 on:
+  push:
+    branches:
+      - release-*
+      - test-run
   pull_request:
     paths:
       - '**.tf'
