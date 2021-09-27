@@ -31,6 +31,10 @@ docs: fmt ## generate docs
 	git add README.md
 	git commit -m "regenerate documents by terraform-docs"
 
+check-docs: fmt ## check docs
+	docker run --rm -v "$(CURDIR):/work" quay.io/terraform-docs/terraform-docs:$(TERRAFORM_DOCS_VERSION) /work
+	test -z "$$(git status -s | tee /dev/stderr)"
+
 # Git
 .PHONY: merge
 merge: ## merge to main branch
