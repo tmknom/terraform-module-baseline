@@ -2,7 +2,6 @@ name: Check git diff
 on:
   push:
     branches:
-      - release-*
       - test-run
   pull_request:
     paths:
