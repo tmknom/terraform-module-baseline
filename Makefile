@@ -53,7 +53,7 @@ bump-version: ## bump version
 	sed -i "" -e "s/$${current_version}/$${version}/" $(PROJECT_ROOT)/examples/**/main.tf && \
 	$(MAKE) docs && \
 	git checkout -b $${branch} && \
-	git add $(PROJECT_ROOT)/VERSION && \
+	git add . && \
 	git commit -m "bump $${version}" && \
 	git tag $${version} && \
 	git push origin $${branch} $${version}
