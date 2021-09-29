@@ -1,6 +1,6 @@
 # terraform-module-baseline
 
-Terraform module which creates Null resources.
+Terraform module baseline supports CI with GitHub Actions and automatic document generation with [terraform-docs](https://github.com/terraform-docs/terraform-docs).
 
 ## Getting Started
 
