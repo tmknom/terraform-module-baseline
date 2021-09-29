@@ -2,6 +2,17 @@
 
 Terraform module which creates Null resources.
 
+## Getting Started
+
+Generate a repository for locally from this baseline is through follow command.
+
+```shell
+make generate
+```
+
+Type a target directory name, when asked.
+Then new repository will be created at the target directory.
+
 <!-- BEGIN_TF_DOCS -->
 ## Examples
 
