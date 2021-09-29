@@ -58,6 +58,11 @@ bump-version: ## bump version
 	git tag $${version} && \
 	git push origin $${branch} $${version}
 
+.PHONY: clean
+clean: ## clean dir
+	rm -rf "${BASIC_DIR}"/terraform.tfstate*
+	rm -rf "${BASIC_DIR}"/.terraform*
+
 # https://postd.cc/auto-documented-makefile/
 .PHONY: help
 help: ## show help
