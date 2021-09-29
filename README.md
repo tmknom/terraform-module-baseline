@@ -55,3 +55,44 @@ module "example" {
 |------|-------------|
 | <a name="output_name"></a> [name](#output\_name) | Resource name |
 <!-- END_TF_DOCS -->
+
+## Developer Guides
+
+### Requirements
+
+- [GNU Make](https://www.gnu.org/software/make/)
+- [Docker](https://docs.docker.com/get-docker/)
+
+### Run Terraform
+
+The following command run Terraform in the examples/basic directory.
+
+```shell
+make plan
+make apply
+make destroy
+```
+
+### Generate document
+
+The following command generate document with terraform-docs.
+
+```shell
+make docs
+```
+
+### Release
+
+Run the following command, and type a new version when asked.
+
+```shell
+make bump-version
+```
+
+These commands perform the following process.
+
+- Bump version
+- Create new tag
+- Push release branch
+
+Then you can create a new Pull Request in GitHub, review and merge.
