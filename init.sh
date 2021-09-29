@@ -22,6 +22,7 @@ cp -r . "${TARGET_DIR}"
 
 # Remove unused files
 rm -rf "${TARGET_DIR}"/init.sh
+rm -rf "${TARGET_DIR}"/LICENSE
 rm -rf "${TARGET_DIR}"/.git
 rm -rf "${TARGET_DIR}"/.idea
 rm -rf "${TARGET_DIR}"/examples/basic/.terraform
