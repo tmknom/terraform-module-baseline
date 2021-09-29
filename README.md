@@ -96,3 +96,7 @@ These commands perform the following process.
 - Push release branch
 
 Then you can create a new Pull Request in GitHub, review and merge.
+
+## License
+
+Apache 2 Licensed. See LICENSE for full details.
