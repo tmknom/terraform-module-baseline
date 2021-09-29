@@ -7,7 +7,6 @@ MAKEFLAGS += --no-builtin-rules
 
 # Variables
 TERRAFORM_DOCS_VERSION := 0.15.0
-DEFAULT_BRANCH ?= main
 PROJECT_ROOT := $$(git rev-parse --show-toplevel)
 BASIC_DIR := $(PROJECT_ROOT)/examples/basic
 
@@ -42,22 +41,6 @@ commit-docs: fmt docs ## generate docs and commit
 .PHONY: check-docs
 check-docs: docs ## check docs
 	test -z "$$(git status -s | tee /dev/stderr)"
-
-# Git
-.PHONY: merge
-merge: ## merge to main branch
-	git switch $(DEFAULT_BRANCH)
-	git pull --rebase origin $(DEFAULT_BRANCH) 2>/dev/null || true
-	$(MAKE) clean
-
-.PHONY: push
-push: ## push current branch
-	git push origin $$(git rev-parse --abbrev-ref HEAD) -f
-
-.PHONY: clean
-clean: ## clean branch
-	git branch --merged | grep -v '* main' | xargs git branch -d
-	git fetch --prune 2>/dev/null || true
 
 # Release
 .PHONY: bump-version
