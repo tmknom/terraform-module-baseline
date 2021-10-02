@@ -4,14 +4,13 @@ Terraform module baseline supports CI with GitHub Actions and automatic document
 
 ## Getting Started
 
-Generate a repository for locally from this baseline is through follow command.
+Generate a repository for locally from this baseline is through follow commands.
 
 ```shell
-make generate
+git clone git@github.com:tmknom/terraform-module-baseline.git
+cd terraform-module-baseline
+./init.sh <target_dir>
 ```
-
-Type a target directory name, when asked.
-Then new repository will be created at the target directory.
 
 <!-- BEGIN_TF_DOCS -->
 ## Examples
