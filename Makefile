@@ -63,11 +63,6 @@ clean: ## clean dir
 	rm -rf "${BASIC_DIR}"/terraform.tfstate*
 	rm -rf "${BASIC_DIR}"/.terraform*
 
-.PHONY: generate
-generate: ## generate a repository from this baseline
-	read -rp "Input target directory: " target && \
-	./init.sh "$${target}"
-
 # https://postd.cc/auto-documented-makefile/
 .PHONY: help
 help: ## show help
